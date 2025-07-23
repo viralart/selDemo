@@ -1,1 +1,35 @@
+# Ignore Maven target directory
 /target/
+
+# Eclipse project files
+/.classpath
+/.project
+/.settings/
+
+# IntelliJ IDEA project files
+/.idea/
+/*.iml
+
+# Visual Studio Code project files
+/.vscode/
+
+# macOS Finder files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Log files
+*.log
+
+# IDE or OS-specific files that shouldn't be versioned
+*.swp
+
+# Ignore Maven wrapper files if not using it
+# Uncomment the lines below if you are NOT using Maven wrapper
+# /mvnw
+# /mvnw.cmd
+# /.mvn/
+
+# Ignore sensitive environment files
+.env

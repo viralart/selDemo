@@ -40,6 +40,7 @@ public class LDTest {
        WebElement disonnectbutton = wait.until(ExpectedConditions.elementToBeClickable(disconnectButton));
        disonnectbutton.click();
        
+       
        // Wait for the confirmation dialog to appear and click the "Yes" button
        driver.close();
 

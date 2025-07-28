@@ -1,49 +1,48 @@
 package LocatorsDemo;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
 public class LDTest {
 
-    public static void main(String[] args) {
-        // Set the correct EdgeDriver path
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\viral.maurya\\Downloads\\edgedriver_win64\\msedgedriver.exe");
+    public static void main(String[] args) throws InterruptedException {
+       WebDriver driver = new ChromeDriver();
+       driver.get("https://easysell.artoon.in/");
+       // Maximize the browser window
+       driver.manage().window().maximize();
+       //Email and password for login
+       String email = "kachhiyameet@gmail.com";
+       String password = ")l_W}B]qn/N6";
+       
+       // Locate the email and password fields and enter the credentials
+       driver.findElement(By.cssSelector("input[type='text']")).sendKeys(email);
+       driver.findElement(By.cssSelector("input[type='password']")).sendKeys(password);
+       driver.findElement(By.cssSelector("Button[type='submit']")).click(); // Click the login button
+       
+	   // Wait for the page to load and the sidebar menu to be visible
+       WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+       By buttonLocator = By.xpath("//li[@data-sidebar='menu-item']//a[@data-sidebar='menu-button']//span[text()='Integration']");
+       wait.until(ExpectedConditions.elementToBeClickable(buttonLocator)).click();
+       By viewButton = By.xpath("//button[normalize-space(text())='View']");
 
-        // Set up EdgeOptions
-        EdgeOptions options = new EdgeOptions();
+       // Wait until the "View" button is clickable and click it
+       WebElement viewbutton = wait.until(ExpectedConditions.elementToBeClickable(viewButton));
+       viewbutton.click();
+       
+       // Wait for the "Disconnect" button to be clickable and click it
+       By disconnectButton = By.xpath("//button[normalize-space(text())='Disconnect']");
+       WebElement disonnectbutton = wait.until(ExpectedConditions.elementToBeClickable(disconnectButton));
+       disonnectbutton.click();
+       
+       // Wait for the confirmation dialog to appear and click the "Yes" button
+       driver.close();
 
-        // Initialize EdgeDriver
-        WebDriver driver = new EdgeDriver(options);
-        driver.manage().window().maximize();
-
-        // Open the login page (without credentials in the URL)
-        driver.get("https://joltfilm.com");
-
-        // Wait for the login elements to be available
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        // Locate username and password fields
-        WebElement usernameField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
-        WebElement passwordField = driver.findElement(By.id("password"));
-
-        // Enter username and password
-        usernameField.sendKeys("stageguest");
-        passwordField.sendKeys("Film24@Jolt");
-
-        // Locate and click the login button
-        WebElement loginButton = driver.findElement(By.cssSelector("button[aria-label='GET Started']"));
-        loginButton.click();
-
-        // Optionally, check if login was successful (for example, check if you’re redirected to the dashboard)
-        wait.until(ExpectedConditions.urlContains("dashboard"));
-
-        // Close the browser
-        driver.quit();
+       
     }
 }

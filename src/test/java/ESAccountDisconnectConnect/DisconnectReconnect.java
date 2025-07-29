@@ -61,7 +61,8 @@ public class DisconnectReconnect {
        
        // Wait for the confirmation dialog to appear and click the "Yes" button
        driver.quit();
-
+	   // Close the browser//
+	   System.out.println("Browser closed successfully.");
        
     }
 }

@@ -31,7 +31,7 @@ public class DisconnectReconnect {
        
 	   // Wait for the page to load and the sidebar menu to be visible
        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-       By buttonLocator = By.xpath("//li[@data-sidebar='menu-item']//a[@data-sidebar='menu-button']//span[text()='Integration']");
+       By buttonLocator = By.xpath("//span[normalize-space()='Integration']");
        wait.until(ExpectedConditions.elementToBeClickable(buttonLocator)).click();
        By viewButton = By.xpath("//button[normalize-space(text())='View']");
 
@@ -58,8 +58,8 @@ public class DisconnectReconnect {
 		   System.out.println("Toggle button not found or not clickable: " + e.getMessage());
 	   }
        Thread.sleep(5000); // Wait for 10 seconds to ensure the dialog appears
-       
-       // Wait for the confirmation dialog to appear and click the "Yes" button
+//       
+//       // Wait for the confirmation dialog to appear and click the "Yes" button
        driver.quit();
 	   // Close the browser//
 	   System.out.println("Browser closed successfully.");

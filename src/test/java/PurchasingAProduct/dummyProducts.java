@@ -26,7 +26,7 @@ public class dummyProducts {
 
 	}
 
-	public static void checkOutProduct(WebDriver driver, String firstName, String lastName, String zipCode) throws Exception{
+	private static void checkOutProduct(WebDriver driver, String firstName, String lastName, String zipCode) throws Exception{
 		// TODO Auto-generated method stub
 		driver.findElement(By.id("checkout")).click();
 		driver.findElement(By.id("first-name")).sendKeys(firstName);

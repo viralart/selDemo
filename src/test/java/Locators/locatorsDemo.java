@@ -49,7 +49,6 @@ public class locatorsDemo {
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-button")));
         loginButton.click();
     }
-
     // Method to add a product to the cart and proceed to checkout
     public static void addProductToCart(WebDriver driver, WebDriverWait wait) {
         // Wait for the product button to be clickable and click it

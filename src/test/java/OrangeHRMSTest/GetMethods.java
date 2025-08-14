@@ -13,6 +13,13 @@ public class GetMethods {
 		driver.manage().window().maximize();
 		
 		System.out.println(driver.getTitle());
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getPageSource());
+		
+		System.out.println(driver.getWindowHandle());
+		System.out.println(driver.getWindowHandles());
+		
+		driver.close();
 
 	}
 
